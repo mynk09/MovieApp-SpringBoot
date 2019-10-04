@@ -15,4 +15,6 @@ public interface MovieService {
     public void deleteMovie(int id);
 
     public Movie updateMovieComments(int id, String comments);
+
+    public List<Movie> getMoviesByName(String name);
 }

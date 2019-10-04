@@ -47,4 +47,10 @@ public class MovieServiceImpl implements MovieService {
         updatedMovie.setMovieComments(comments);
         return movieRepository.save(updatedMovie);
     }
+
+    @Override
+    public List<Movie> getMoviesByName(String name) {
+        List<Movie> retrievedMovies = movieRepository.findByMovieNameIgnoreCase(name);
+        return retrievedMovies;
+    }
 }

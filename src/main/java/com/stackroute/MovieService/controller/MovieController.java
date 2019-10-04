@@ -75,4 +75,16 @@ public class MovieController {
         }
         return responseEntity;
     }
+
+    @GetMapping("movie/byName/{name}")
+    public ResponseEntity getMoviesByName(@PathVariable String name){
+        ResponseEntity responseEntity;
+        try {
+            responseEntity = new ResponseEntity<List<Movie>>(movieService.getMoviesByName(name), HttpStatus.OK);
+        } catch (Exception e) {
+            responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+        }
+        return responseEntity;
+    }
+
 }
