@@ -4,10 +4,11 @@ import com.stackroute.MovieService.domain.Movie;
 import com.stackroute.MovieService.exception.MovieAlreadyExistsException;
 import com.stackroute.MovieService.exception.MovieNotFoundException;
 import org.springframework.stereotype.Service;
-
+import org.springframework.context.annotation.Profile;
 import java.util.List;
 
 @Service("dummy")
+@Profile("test")
 public class MovieDummyServiceImpl implements MovieService {
 
     @Override
