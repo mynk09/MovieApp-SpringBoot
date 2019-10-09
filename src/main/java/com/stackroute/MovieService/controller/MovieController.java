@@ -20,72 +20,48 @@ public class MovieController {
     }
 
     @PostMapping("movie")
-    public ResponseEntity saveMovie(@RequestBody Movie movie) {
+    public ResponseEntity saveMovie(@RequestBody Movie movie) throws MovieAlreadyExistsException {
         ResponseEntity responseEntity;
-        try {
-            Movie savedMovie = movieService.saveMovie(movie);
-            responseEntity = new ResponseEntity<Movie>(savedMovie, HttpStatus.CREATED);
-        } catch (MovieAlreadyExistsException e) {
-            responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
-        }
+        Movie savedMovie = movieService.saveMovie(movie);
+        responseEntity = new ResponseEntity<Movie>(savedMovie, HttpStatus.CREATED);
         return responseEntity;
     }
 
     @GetMapping("movie")
     public ResponseEntity getAllMovies() {
         ResponseEntity responseEntity;
-        try {
-            List<Movie> movieList = movieService.getAllMovies();
-            responseEntity = new ResponseEntity<List<Movie>>(movieList, HttpStatus.OK);
-        } catch (Exception e) {
-            responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+        List<Movie> movieList = movieService.getAllMovies();
+        responseEntity = new ResponseEntity<List<Movie>>(movieList, HttpStatus.OK);
         return responseEntity;
     }
 
     @GetMapping("movie/{id}")
-    public ResponseEntity getMovieById(@PathVariable int id) {
+    public ResponseEntity getMovieById(@PathVariable int id) throws MovieNotFoundException {
         ResponseEntity responseEntity;
-        try {
-            Movie retrievedMovie = movieService.getMovieById(id);
-            responseEntity = new ResponseEntity<Movie>(retrievedMovie, HttpStatus.OK);
-        } catch (MovieNotFoundException e) {
-            responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+        Movie retrievedMovie = movieService.getMovieById(id);
+        responseEntity = new ResponseEntity<Movie>(retrievedMovie, HttpStatus.OK);
         return responseEntity;
     }
 
     @DeleteMapping("movie/{id}")
-    public ResponseEntity deleteMovie(@PathVariable int id) {
+    public ResponseEntity deleteMovie(@PathVariable int id) throws MovieNotFoundException {
         ResponseEntity responseEntity;
-        try {
-            movieService.deleteMovie(id);
-            responseEntity = new ResponseEntity<String>("Successfully deleted", HttpStatus.OK);
-        } catch (MovieNotFoundException e) {
-            responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
-        }
+        movieService.deleteMovie(id);
+        responseEntity = new ResponseEntity<String>("Successfully deleted", HttpStatus.OK);
         return responseEntity;
     }
 
     @PutMapping("movie/{id}")
-    public ResponseEntity updateComments(@PathVariable int id, @RequestBody String comments) {
+    public ResponseEntity updateComments(@PathVariable int id, @RequestBody String comments) throws MovieNotFoundException {
         ResponseEntity responseEntity;
-        try {
-            responseEntity = new ResponseEntity<Movie>(movieService.updateMovieComments(id, comments), HttpStatus.OK);
-        } catch (MovieNotFoundException e) {
-            responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
-        }
+        responseEntity = new ResponseEntity<Movie>(movieService.updateMovieComments(id, comments), HttpStatus.OK);
         return responseEntity;
     }
 
     @GetMapping("movie/byName/{name}")
-    public ResponseEntity getMoviesByName(@PathVariable String name){
+    public ResponseEntity getMoviesByName(@PathVariable String name) throws MovieNotFoundException {
         ResponseEntity responseEntity;
-        try {
-            responseEntity = new ResponseEntity<List<Movie>>(movieService.getMoviesByName(name), HttpStatus.OK);
-        } catch (MovieNotFoundException e) {
-            responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
-        }
+        responseEntity = new ResponseEntity<List<Movie>>(movieService.getMoviesByName(name), HttpStatus.OK);
         return responseEntity;
     }
 
