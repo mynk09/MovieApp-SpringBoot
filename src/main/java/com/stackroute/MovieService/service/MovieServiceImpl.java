@@ -5,13 +5,16 @@ import com.stackroute.MovieService.exception.MovieNotFoundException;
 import com.stackroute.MovieService.exception.MovieAlreadyExistsException;
 import com.stackroute.MovieService.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-@Service
+@Service("original")
+@Primary
 public class MovieServiceImpl implements MovieService {
 
     private MovieRepository movieRepository;
@@ -22,7 +25,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     public Movie saveMovie(Movie movie) throws MovieAlreadyExistsException{
-        if(movieRepository.existsById(movie.getMovieId())){
+        if(movieRepository.existsById(movie.getmovieId())){
             throw new MovieAlreadyExistsException("Movie already exists");
         }
         Movie savedMovie = movieRepository.save(movie);

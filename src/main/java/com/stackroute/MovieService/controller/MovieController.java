@@ -7,12 +7,17 @@ import com.stackroute.MovieService.service.MovieService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(value="api/v1")
 public class MovieController {
+
+    @Autowired
+    @Qualifier("original")
     private MovieService movieService;
 
     public MovieController(MovieService movieService) {

@@ -19,5 +19,14 @@ public class Movie {
     private String actorName;
     private String movieComments;
     private String movieName;
+
+
+    public Integer getmovieId() {
+        return movieId;
+    }
+
+    public String setMovieComments(String comments) {
+        return movieComments;
+    }
 }
 
