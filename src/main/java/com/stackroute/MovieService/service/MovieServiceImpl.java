@@ -27,7 +27,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     public Movie saveMovie(Movie movie) throws MovieAlreadyExistsException{
-        if(movieRepository.existsById(movie.getmovieId())){
+        if(movieRepository.existsById(movie.getMovieId())){
             throw new MovieAlreadyExistsException("Movie already exists");
         }
         Movie savedMovie = movieRepository.save(movie);
