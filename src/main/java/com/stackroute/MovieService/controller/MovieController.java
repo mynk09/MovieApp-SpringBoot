@@ -17,8 +17,10 @@ public class MovieController {
 
     @Autowired
     private MovieService movieService;
+    private ResponseEntity responseEntity;
 
     public MovieController(MovieService movieService) {
+
         this.movieService = movieService;
     }
 
