@@ -1,6 +1,6 @@
-package com.stackroute.MovieService.repository;
+package com.stackroute.movieservice.repository;
 
-import com.stackroute.MovieService.domain.Movie;
+import com.stackroute.movieservice.domain.Movie;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -11,8 +11,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

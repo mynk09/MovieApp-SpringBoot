@@ -1,10 +1,9 @@
-package com.stackroute.MovieService.service;
+package com.stackroute.movieservice.service;
 
-import com.stackroute.MovieService.domain.Movie;
-import com.stackroute.MovieService.exception.MovieAlreadyExistsException;
-import com.stackroute.MovieService.exception.MovieNotFoundException;
-import com.stackroute.MovieService.repository.MovieRepository;
-import org.junit.After;
+import com.stackroute.movieservice.domain.Movie;
+import com.stackroute.movieservice.exception.MovieAlreadyExistsException;
+import com.stackroute.movieservice.exception.MovieNotFoundException;
+import com.stackroute.movieservice.repository.MovieRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +14,6 @@ import org.mockito.MockitoAnnotations;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 

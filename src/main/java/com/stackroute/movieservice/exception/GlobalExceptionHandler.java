@@ -1,4 +1,4 @@
-package com.stackroute.MovieService.exception;
+package com.stackroute.movieservice.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

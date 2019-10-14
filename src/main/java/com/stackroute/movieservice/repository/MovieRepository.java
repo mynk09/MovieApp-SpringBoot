@@ -1,7 +1,8 @@
-package com.stackroute.MovieService.repository;
+package com.stackroute.movieservice.repository;
 
-import com.stackroute.MovieService.domain.Movie;
+import com.stackroute.movieservice.domain.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
+
 import org.springframework.stereotype.Repository;
 import java.util.List;
 

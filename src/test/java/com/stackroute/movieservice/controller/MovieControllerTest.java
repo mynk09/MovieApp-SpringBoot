@@ -1,12 +1,12 @@
-package com.stackroute.MovieService.controller;
+package com.stackroute.movieservice.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.stackroute.MovieService.domain.Movie;
-import com.stackroute.MovieService.exception.GlobalExceptionHandler;
-import com.stackroute.MovieService.exception.MovieAlreadyExistsException;
-import com.stackroute.MovieService.exception.MovieNotFoundException;
-import com.stackroute.MovieService.repository.MovieRepository;
-import com.stackroute.MovieService.service.MovieService;
+import com.stackroute.movieservice.domain.Movie;
+import com.stackroute.movieservice.exception.GlobalExceptionHandler;
+import com.stackroute.movieservice.exception.MovieAlreadyExistsException;
+import com.stackroute.movieservice.exception.MovieNotFoundException;
+import com.stackroute.movieservice.repository.MovieRepository;
+import com.stackroute.movieservice.service.MovieService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

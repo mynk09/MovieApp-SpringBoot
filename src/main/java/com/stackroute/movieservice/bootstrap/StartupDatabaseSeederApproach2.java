@@ -1,7 +1,7 @@
-package com.stackroute.MovieService.StartUp;
+package com.stackroute.movieservice.bootstrap;
 
-import com.stackroute.MovieService.domain.Movie;
-import com.stackroute.MovieService.repository.MovieRepository;
+import com.stackroute.movieservice.domain.Movie;
+import com.stackroute.movieservice.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.context.properties.ConfigurationProperties;

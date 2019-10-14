@@ -1,4 +1,4 @@
-package com.stackroute.MovieService;
+package com.stackroute.movieservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

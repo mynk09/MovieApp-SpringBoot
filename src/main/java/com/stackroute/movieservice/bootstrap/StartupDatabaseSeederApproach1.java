@@ -1,7 +1,7 @@
-package com.stackroute.MovieService.StartUp;
+package com.stackroute.movieservice.bootstrap;
 
-import com.stackroute.MovieService.domain.Movie;
-import com.stackroute.MovieService.repository.MovieRepository;
+import com.stackroute.movieservice.domain.Movie;
+import com.stackroute.movieservice.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationListener;
@@ -30,11 +30,19 @@ public class StartupDatabaseSeederApproach1 implements ApplicationListener<Conte
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
+        Movie movie1 = Movie.builder()
+                .actorName("Srk")
+                .movieId(1)
+                .movieName("DDLJ")
+                .movieComments("NICE")
+                .build();
+
         Movie movie = new Movie();
         movie.setMovieId(id);
         movie.setMovieName(env.getProperty("movie.name1"));
         movie.setMovieComments(env.getProperty("movie.unwatch"));
         movie.setActorName(env.getProperty("movie.actor1"));
         movieRepository.save(movie);
+        movieRepository.save(movie1);
     }
 }

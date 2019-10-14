@@ -1,9 +1,9 @@
-package com.stackroute.MovieService.service;
+package com.stackroute.movieservice.service;
 
-import com.stackroute.MovieService.domain.Movie;
-import com.stackroute.MovieService.exception.MovieNotFoundException;
-import com.stackroute.MovieService.exception.MovieAlreadyExistsException;
-import com.stackroute.MovieService.repository.MovieRepository;
+import com.stackroute.movieservice.domain.Movie;
+import com.stackroute.movieservice.exception.MovieNotFoundException;
+import com.stackroute.movieservice.exception.MovieAlreadyExistsException;
+import com.stackroute.movieservice.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;

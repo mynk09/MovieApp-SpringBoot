@@ -1,9 +1,9 @@
-package com.stackroute.MovieService.controller;
+package com.stackroute.movieservice.controller;
 
-import com.stackroute.MovieService.domain.Movie;
-import com.stackroute.MovieService.exception.MovieAlreadyExistsException;
-import com.stackroute.MovieService.exception.MovieNotFoundException;
-import com.stackroute.MovieService.service.MovieService;
+import com.stackroute.movieservice.domain.Movie;
+import com.stackroute.movieservice.exception.MovieAlreadyExistsException;
+import com.stackroute.movieservice.exception.MovieNotFoundException;
+import com.stackroute.movieservice.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,23 +11,34 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping(value="api/v1")
 public class MovieController {
 
-    @Autowired
+
     private MovieService movieService;
     private ResponseEntity responseEntity;
 
+    @Autowired
     public MovieController(MovieService movieService) {
 
         this.movieService = movieService;
     }
 
     @PostMapping("movie")
-    public ResponseEntity saveMovie(@RequestBody Movie movie) throws MovieAlreadyExistsException {
-        ResponseEntity responseEntity;
-        Movie savedMovie = movieService.saveMovie(movie);
+    public ResponseEntity saveMovie(@RequestBody Movie movie)  {
+        Movie savedMovie = null;
+        try {
+            savedMovie = movieService.saveMovie(movie);
+        } catch (MovieAlreadyExistsException e) {
+            responseEntity= new ResponseEntity<String>(e.getMessage(),HttpStatus.CONFLICT);
+            e.printStackTrace();
+        }
+        catch (Exception e) {
+            responseEntity= new ResponseEntity<String>("Please try later",HttpStatus.CONFLICT);
+            e.printStackTrace();
+        }
         responseEntity = new ResponseEntity<Movie>(savedMovie, HttpStatus.CREATED);
         return responseEntity;
     }
@@ -63,7 +74,7 @@ public class MovieController {
         return responseEntity;
     }
 
-    @GetMapping("movie/byName/{name}")
+    @GetMapping("movie/name/{name}")
     public ResponseEntity getMoviesByName(@PathVariable String name) throws MovieNotFoundException {
         ResponseEntity responseEntity;
         responseEntity = new ResponseEntity<List<Movie>>(movieService.getMoviesByName(name), HttpStatus.OK);

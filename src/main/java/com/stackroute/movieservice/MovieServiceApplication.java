@@ -1,6 +1,6 @@
-package com.stackroute.MovieService;
+package com.stackroute.movieservice;
 
-import com.stackroute.MovieService.StartUp.StartupDatabaseSeederApproach2;
+import com.stackroute.movieservice.bootstrap.StartupDatabaseSeederApproach2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

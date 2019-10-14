@@ -1,4 +1,4 @@
-package com.stackroute.MovieService.domain;
+package com.stackroute.movieservice.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 @Entity
 @Data
